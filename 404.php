@@ -1,6 +1,6 @@
 <?php 
 /**
- * @package twentytwenty
+ * @package projectone
  */
 
 get_header(); 
