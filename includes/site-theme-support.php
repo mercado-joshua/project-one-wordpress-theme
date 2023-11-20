@@ -15,6 +15,8 @@ class Add_Theme_Support {
 
     public function theme_support() {
 
+        add_theme_support( 'title-tag' );
+
         // adds site logo to the wordpress dashboard
         add_theme_support( 'custom-logo', array(
             'height' => '',
