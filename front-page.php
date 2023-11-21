@@ -17,8 +17,16 @@ get_header();
           <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-menu.svg'; ?>" alt="">
         </button><!-- // .menu-btn -->
 
-        <!-- <ul class="navbar">
-        </ul>// .navbar -->
+        <?php
+          if ( has_nav_menu( 'header' ) ) {
+            wp_nav_menu( array(
+              'menu' => 'header',
+              'theme_location' => 'header',
+              'container' => '',
+              'items_wrap' => '<ul class="navbar">%3$s</ul>'
+            ) );
+          }
+        ?><!-- // .navbar -->
       </nav><!-- // .navbar-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->
