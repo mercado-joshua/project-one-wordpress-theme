@@ -30,6 +30,10 @@ get_header();
 
         <div class="overlay"></div><!-- // .overlay -->
       </nav><!-- // .navbar-section -->
+
+      <div class="hero-section">
+
+      </div><!-- // .hero-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->
 

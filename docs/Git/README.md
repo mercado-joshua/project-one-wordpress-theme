@@ -305,6 +305,10 @@
 
 `! git push -u origin branchName` - push changes from your local branch to the remote branch repo
 
+`git push origin --delete branchName` - delete branch from the remote
+
+`git fetch -p` - to synchronize your branch list
+
 ***
 ### Writing Git Commits
 
