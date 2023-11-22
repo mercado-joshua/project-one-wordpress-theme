@@ -13,7 +13,7 @@ get_header();
           <img src="<?php echo get_template_directory_uri() . '/assets/images/logo.svg'; ?>" alt="img-fluid">
         </div><!-- // .logobox -->
 
-        <button class="menu-btn btn">
+        <button class="menu-btn btn d-lg-none">
           <img src="<?php echo get_template_directory_uri() . '/assets/images/icon-menu.svg'; ?>" alt="">
         </button><!-- // .menu-btn -->
 
@@ -27,6 +27,8 @@ get_header();
             ) );
           }
         ?><!-- // .navbar -->
+
+        <div class="overlay"></div><!-- // .overlay -->
       </nav><!-- // .navbar-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->

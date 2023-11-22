@@ -1,0 +1,18 @@
+.navbar-section {
+  position: relative;
+  z-index: 1;
+  color: red;
+  border: 1px solid red;
+}
+.navbar-section .menu-btn {
+  cursor: pointer;
+  background-color: red;
+  padding: 3em;
+}
+.navbar-section .overlay {
+  position: fixed;
+  z-index: 2;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
