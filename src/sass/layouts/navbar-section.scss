@@ -1,0 +1,94 @@
+@use '../utils/breakpoints';
+
+.navbar-section {
+    position: relative;
+    z-index: 1;
+
+     .menu-btn {
+        cursor: pointer;
+    }
+
+     .overlay {
+        position: fixed;
+        z-index: 2;
+        inset: 0;
+        background-color: rgba( 0, 0, 0, .5 );
+        display: none;
+
+        &.-active {
+            display: flex;
+        }
+    }
+
+    > .navbar {
+        position: fixed;
+        right: -100%; /* hide it */
+        top: 0;
+        z-index: 3;
+        display: flex;
+        gap: 1.2em;
+        flex-direction: column;
+        justify-content: start;
+        padding-top: 6em;
+        padding-left: 1em;
+        padding-right: 1em;
+        width: 300px;
+        height: 100vh;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba( 0, 0, 0, .3 );
+        font-weight: 600;
+        font-size: 1.5rem;
+        transition: right .5s;
+
+        &.-active {
+            right: 0;
+        }
+
+        > .close-btn {
+            position: absolute;
+            top: 1em;
+            right: 1em;
+            height: 2em;
+            width: 2em;
+            cursor: pointer;
+            background-color: #fff;
+        }
+
+        > li {
+            display: block;
+            width: 100%;
+
+            > a {
+                color: #000;
+                text-align: left;
+            }
+        }
+
+        @include breakpoints.media-breakpoint-up( 992px ) {
+            all: unset;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 2em;
+            font-weight: 600;
+
+            > .close-btn {
+                display: none;
+            }
+
+            > li {
+                display: block;
+    
+                > a {
+                    display: block;
+                    color: rgba( 0, 0, 0 , .6 );
+                    transition: 500ms ease;
+
+                    &:hover {
+                        color: #c66c6e !important;
+                    }
+                }
+            }
+        }
+    }
+}

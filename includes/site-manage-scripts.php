@@ -49,6 +49,14 @@ class Base_Controller {
                 'version' => '1.0', 
                 'media' => 'all',
                 'in_footer' => true 
+            ),
+            array(
+                'name' =>'nav-section', 
+                'path' => get_template_directory_uri() . '/assets/js/behaviours/nav-section.js', 
+                'deps' => array( 'jquery-min' ), 
+                'version' => '1.0', 
+                'media' => 'all',
+                'in_footer' => true 
             )
         );
 
