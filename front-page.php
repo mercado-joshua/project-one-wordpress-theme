@@ -31,7 +31,7 @@ get_header();
         <div class="overlay d-lg-none"></div><!-- // .overlay -->
       </nav><!-- // .navbar-section -->
 
-    <div class="hero-section py-4">
+    <div class="hero-section py-4 d-flex flex-column gap-5 py-lg-5">
       <div class="herobox d-flex flex-column gap-3">
         <div class="imagebox">
           <picture>
@@ -62,8 +62,6 @@ get_header();
         </div>
 
         <div class="contentbox">
-          <!-- <h2 class="title">The Bright Future of Web 3.0?</h2> -->
-
           <h2 class="title">
             <?php
               if ( get_theme_mod( 'hero-title' ) ) { echo get_theme_mod( 'hero-title' ); }
@@ -84,8 +82,51 @@ get_header();
         </div>
       </div><!-- // herobox -->
 
-      <div class="newsbox">
+      <div class="newsbox p-4">
+        <h2 class="title mb-2">New</h2>
+        
+        <div class="news d-flex flex-column gap-3">
+          <?php
+            $date = array(
+              'after' => '-30 days',
+              'column' => 'post_date'
+            );
 
+            $args = array(
+              'post_type' => 'post',
+              'order' => 'DESC',
+              'posts_per_page' => 3,
+              'date_query' => $date
+            );
+
+            $loop = new Wp_Query( $args );
+
+            if ( $loop->have_posts() ) {
+              while ( $loop->have_posts() ) {
+                $loop->the_post();
+          ?>
+            <div class="news-card pb-1" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                <a href="<?php echo esc_url( get_permalink() ); ?>" class="link">
+                  <h2 class="title text-white my-3"><?php echo get_the_title(); ?></h2>
+                </a>
+
+                <p class="description text-white opacity-75">
+                  <?php echo strip_tags( get_the_content() ); ?>
+                </p>
+            </div><!-- // .news-card -->
+          <?php
+              }
+            }
+
+            else {
+              echo wpautop( 'Sorry, no posts where found.' );
+            }
+
+            wp_reset_query();
+            wp_reset_postdata();
+          ?>
+
+        </div><!-- // .news -->
       </div><!-- // .newsbox -->
     </div><!-- // .hero-section -->
     </div><!-- // .news-blog-section -->

@@ -1,10 +1,37 @@
+@use '../utils/breakpoints';
+
+.hero-section {
+    @include breakpoints.media-breakpoint-up( 992px ) {
+        display: grid !important;
+        grid-template-columns: 1fr auto;
+        gap: 1.5em !important;
+    }
+}
+
 .herobox {
+    @include breakpoints.media-breakpoint-up( 992px ) {
+        gap: 2.5em !important;
+    }
     > .contentbox {
         > .title {
             font-weight: bold;
             font-size: 2.2rem;
             line-height: 1em;
             margin-bottom: .8em;
+
+            @include breakpoints.media-breakpoint-up( 992px ) {
+                font-size: 3.3rem;
+            }
+
+            @include breakpoints.media-breakpoint-up( 1400px ) {
+                font-size: 3.6rem;
+            }
+        }
+        
+        @include breakpoints.media-breakpoint-up( 992px ) {
+            display: grid !important;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
         }
     }
 }
@@ -22,4 +49,32 @@
     letter-spacing: .3em;
     font-weight: 600;
     color: #fff;
+
+    @include breakpoints.media-breakpoint-up( 992px ) {
+        margin-top: 1.8em;
+    }
 }
+
+.newsbox {
+    background-color: #00001a;
+
+    > .title {
+        color: #e6aa52;
+        font-weight: 700;
+    }
+
+    @include breakpoints.media-breakpoint-up( 992px ) {
+        max-width: 20em;
+    }
+}
+
+.news-card {
+    & + .news-card {
+        border-top: 1px solid #fafafa;
+    }
+
+    .title {
+        font-size: 1.2rem !important;
+    }
+}
+
