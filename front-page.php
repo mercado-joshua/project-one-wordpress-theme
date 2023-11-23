@@ -28,11 +28,106 @@ get_header();
           }
         ?><!-- // .navbar -->
 
-        <div class="overlay"></div><!-- // .overlay -->
+        <div class="overlay d-lg-none"></div><!-- // .overlay -->
       </nav><!-- // .navbar-section -->
 
-      <div class="hero-section">
+      <div class="hero-section py-4 d-flex flex-column gap-5 py-lg-5">
+        <div class="herobox d-flex flex-column gap-3">
+          <div class="imagebox">
+            <picture>
+              <?php
+                if ( get_theme_mod( 'hero-image-desktop' ) ) { 
+              ?>
+                <source srcset="<?php echo esc_url( get_theme_mod( 'hero-image-desktop' ) ); ?>"  media="( min-width: 992px )">
+              <?php
+                }
+              ?>
 
+              <?php
+                if ( get_theme_mod( 'hero-image-mobile' ) ) { 
+              ?>
+                <source srcset="<?php echo esc_url( get_theme_mod( 'hero-image-mobile' ) ); ?>">
+              <?php
+                }
+              ?>
+
+              <?php
+                if ( get_theme_mod( 'hero-image-mobile' ) ) { 
+              ?>
+                <img class="img-fluid" src="<?php echo esc_url( get_theme_mod( 'hero-image-mobile' ) ); ?>" alt="">
+              <?php
+                }
+              ?>
+            </picture>
+          </div>
+
+          <div class="contentbox">
+            <h2 class="title">
+              <?php
+                if ( get_theme_mod( 'hero-title' ) ) { echo get_theme_mod( 'hero-title' ); }
+              ?>
+            </h2>
+
+            <div class="descriptionbox">
+              <p class="description">
+                <?php
+                  if ( get_theme_mod( 'hero-textarea' ) ) { echo get_theme_mod( 'hero-textarea' ); }
+                ?>
+              </p>
+
+              <a class="link" href="<?php if ( get_theme_mod( 'hero-textarea' ) ) { echo esc_url( get_theme_mod( 'hero-url' ) ); } ?>">
+                <button class="readmore-btn btn">Read more</button>
+              </a>
+            </div>
+          </div>
+        </div><!-- // herobox -->
+
+        <div class="newsbox p-4">
+          <h2 class="title mb-2">New</h2>
+          
+          <div class="news d-flex flex-column gap-3">
+            <?php
+              $date = array(
+                'after' => '-30 days',
+                'column' => 'post_date'
+              );
+
+              $args = array(
+                'post_type' => 'post',
+                'order' => 'DESC',
+                'posts_per_page' => 3,
+                'date_query' => $date
+              );
+
+              $loop = new Wp_Query( $args );
+
+              if ( $loop->have_posts() ) {
+                while ( $loop->have_posts() ) {
+                  $loop->the_post();
+            ?>
+              <div class="news-card pb-1" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+                  <a href="<?php echo esc_url( get_permalink() ); ?>" class="link">
+                    <h2 class="title text-white my-3"><?php echo get_the_title(); ?></h2>
+                  </a>
+
+                  <p class="description text-white opacity-75">
+                    <?php echo strip_tags( get_the_content() ); ?>
+                  </p>
+              </div><!-- // .news-card -->
+            <?php
+                }
+              }
+
+              else {
+                echo wpautop( 'Sorry, no posts where found.' );
+              }
+
+              wp_reset_query();
+              wp_reset_postdata();
+            ?>
+
+          </div><!-- // .news -->
+        </div><!-- // .newsbox -->
       </div><!-- // .hero-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->

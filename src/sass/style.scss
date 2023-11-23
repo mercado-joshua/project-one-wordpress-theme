@@ -33,7 +33,7 @@ Use it to make something cool, have fun, and share what you've learned with othe
 /// 2. layout - contains styles for different aspects of the
 ///             site's structural layout.
 @forward "layouts/navbar-section.scss";
-// @forward "layouts/contact-section";
+@forward "layouts/hero-section.scss";
 // @forward "layouts/footer-section";
 
 /// 3. components - "mini" layouts. Styles for small,
