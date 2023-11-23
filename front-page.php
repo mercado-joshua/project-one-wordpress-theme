@@ -28,8 +28,66 @@ get_header();
           }
         ?><!-- // .navbar -->
 
-        <div class="overlay"></div><!-- // .overlay -->
+        <div class="overlay d-lg-none"></div><!-- // .overlay -->
       </nav><!-- // .navbar-section -->
+
+    <div class="hero-section py-4">
+      <div class="herobox d-flex flex-column gap-3">
+        <div class="imagebox">
+          <picture>
+            <?php
+              if ( get_theme_mod( 'hero-image-desktop' ) ) { 
+            ?>
+              <source srcset="<?php echo esc_url( get_theme_mod( 'hero-image-desktop' ) ); ?>"  media="( min-width: 992px )">
+            <?php
+              }
+            ?>
+
+            <?php
+              if ( get_theme_mod( 'hero-image-mobile' ) ) { 
+            ?>
+              <source srcset="<?php echo esc_url( get_theme_mod( 'hero-image-mobile' ) ); ?>">
+            <?php
+              }
+            ?>
+
+            <?php
+              if ( get_theme_mod( 'hero-image-mobile' ) ) { 
+            ?>
+              <img class="img-fluid" src="<?php echo esc_url( get_theme_mod( 'hero-image-mobile' ) ); ?>" alt="">
+            <?php
+              }
+            ?>
+          </picture>
+        </div>
+
+        <div class="contentbox">
+          <!-- <h2 class="title">The Bright Future of Web 3.0?</h2> -->
+
+          <h2 class="title">
+            <?php
+              if ( get_theme_mod( 'hero-title' ) ) { echo get_theme_mod( 'hero-title' ); }
+            ?>
+          </h2>
+
+          <div class="descriptionbox">
+            <p class="description">
+              <?php
+                if ( get_theme_mod( 'hero-textarea' ) ) { echo get_theme_mod( 'hero-textarea' ); }
+              ?>
+            </p>
+
+            <a class="link" href="<?php if ( get_theme_mod( 'hero-textarea' ) ) { echo esc_url( get_theme_mod( 'hero-url' ) ); } ?>">
+              <button class="readmore-btn btn">Read more</button>
+            </a>
+          </div>
+        </div>
+      </div><!-- // herobox -->
+
+      <div class="newsbox">
+
+      </div><!-- // .newsbox -->
+    </div><!-- // .hero-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->
 

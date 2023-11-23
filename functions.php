@@ -12,6 +12,7 @@
  *  2. Manages JS & CSS scripts
  *  3. Remove wordpress generator version
  *  4. Manage Menus
+ *  5. Hero Customizer
  * 
  */
 
@@ -39,4 +40,10 @@ require get_template_directory() . '/includes/site-manage-menus.php';
  * [5] Remove WP Topbar
  */
 require get_template_directory() . '/includes/site-remove-wp-topbar.php';
+
+/**
+ * [6] Hero Customizer
+ */
+require get_template_directory() . '/includes/site-hero-customizer.php';
+
 

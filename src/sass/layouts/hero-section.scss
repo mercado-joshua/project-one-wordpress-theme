@@ -1,0 +1,25 @@
+.herobox {
+    > .contentbox {
+        > .title {
+            font-weight: bold;
+            font-size: 2.2rem;
+            line-height: 1em;
+            margin-bottom: .8em;
+        }
+    }
+}
+
+.descriptionbox {
+    > .description {
+        margin-bottom: 1.2em;
+    }
+}
+
+.readmore-btn {
+    padding: .8em 2em;
+    background-color: #f15c55;
+    text-transform: uppercase;
+    letter-spacing: .3em;
+    font-weight: 600;
+    color: #fff;
+}
