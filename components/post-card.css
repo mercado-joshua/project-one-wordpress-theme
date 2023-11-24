@@ -1,0 +1,23 @@
+.post-card {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+}
+.post-card > .contentbox {
+  padding: 0 1em 1em 1em;
+}
+.post-card > .contentbox > .counter::before {
+  counter-increment: post-card-counter;
+  content: "0" counter(post-card-counter);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #c9c8cd;
+}
+.post-card > .contentbox > .title {
+  font-size: 1rem;
+  font-weight: bold;
+}
+@media only screen and (min-width: 992px) {
+  .post-card > .contentbox > .title {
+    font-size: 1.2rem;
+  }
+}

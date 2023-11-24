@@ -1,0 +1,29 @@
+@use '../utils/breakpoints';
+
+.post-card {
+    display: grid;
+    grid-template-columns: 40% 1fr;
+
+    > .contentbox {
+        padding: 0 1em 1em 1em;
+
+        > .counter {
+            &::before {
+                counter-increment: post-card-counter;
+                content: "0" counter(post-card-counter);
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #c9c8cd;
+            }
+        }
+
+        > .title {
+            font-size: 1rem;
+            font-weight: bold;
+
+            @include breakpoints.media-breakpoint-up( 992px ) {
+                font-size: 1.2rem;
+            }
+        }
+    }
+}

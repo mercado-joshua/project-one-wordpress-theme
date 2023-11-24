@@ -129,6 +129,53 @@ get_header();
           </div><!-- // .news -->
         </div><!-- // .newsbox -->
       </div><!-- // .hero-section -->
+
+      <div class="news-section d-flex flex-column gap-3 pb-5">
+        <?php
+          $args = array(
+            'post_type' => 'news-post-type',
+            'order' => 'ASC',
+            'posts_per_page' => 3
+          );
+
+          $posts = new Wp_Query( $args );
+
+          if ( $posts->have_posts() ) {
+            while ( $posts->have_posts() ) {
+              $posts->the_post();
+        ?>
+          <div class="post-card" id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+            <div class="imagebox">
+              <?php
+                if ( has_post_thumbnail() ) {
+              ?> 
+                <img class="img-fluid" src="<?php echo wp_get_attachment_url( get_post_thumbnail_id( $posts->ID ) ); ?>" alt="">
+              <?php
+                }
+              ?>
+            </div>
+
+            <div class="contentbox">
+              <span class="counter"></span>
+
+              <a href="<?php echo esc_url( get_permalink() ); ?>" class="link">
+                <h2 class="title my-2"><?php echo get_the_title(); ?></h2>
+              </a>
+              
+              <p class="description opacity-75">
+                <?php echo strip_tags( get_the_content() ); ?>
+              </p>
+            </div>
+          </div><!-- // .post-card -->
+        <?php
+            }
+          }
+
+          else {
+            echo wpautop( 'Sorry, no posts where found.' );
+          }
+        ?>
+      </div><!-- // .news-section -->
     </div><!-- // .news-blog-section -->
   </div><!-- // .news-blog-wrapper -->
 

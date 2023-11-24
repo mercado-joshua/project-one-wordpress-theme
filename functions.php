@@ -46,4 +46,9 @@ require get_template_directory() . '/includes/site-remove-wp-topbar.php';
  */
 require get_template_directory() . '/includes/site-hero-customizer.php';
 
+/**
+ * [7] News Custom Post Type
+ */
+require get_template_directory() . '/includes/site-news-custom-post-type.php';
+
 

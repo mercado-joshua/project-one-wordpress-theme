@@ -34,11 +34,11 @@ Use it to make something cool, have fun, and share what you've learned with othe
 ///             site's structural layout.
 @forward "layouts/navbar-section.scss";
 @forward "layouts/hero-section.scss";
-// @forward "layouts/footer-section";
+@forward "layouts/news-section.scss";
 
 /// 3. components - "mini" layouts. Styles for small,
 ///                  reusable pieces of the site.
 
-// @forward "components/project-card";
+@forward "components/post-card.scss";
 
 

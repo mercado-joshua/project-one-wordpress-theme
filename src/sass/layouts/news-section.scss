@@ -1,0 +1,10 @@
+@use '../utils/breakpoints';
+
+.news-section {
+    counter-reset: post-card-counter;
+
+    @include breakpoints.media-breakpoint-up( 992px ) {
+        display: grid !important;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
